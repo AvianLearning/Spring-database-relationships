@@ -29,7 +29,13 @@ class CompanyRelationshipsApplicationTests {
 
 	@Test
 	void contextLoads() {
+		Department department = new Department("Finance");
+		departmentRepository.save(department);
 
+		Employee employee = new Employee("Yana", "Zykova", 123, department);
+		employeeRepository.save(employee);
+
+		System.out.println(employeeRepository.count());
 	}
 
 	@Test
@@ -54,6 +60,22 @@ class CompanyRelationshipsApplicationTests {
 
 		project.addEmployee(employee);
 		projectRepository.save(project);
+	}
+
+	@Test
+	public void canAddEmployeeToDepartment() {
+		Department department = new Department("Finance");
+		departmentRepository.save(department);
+
+		Employee employee = new Employee("Yana", "Zykova", 123, department);
+		employeeRepository.save(employee);
+
+		Employee employee2 = new Employee("Iain", "Radcliffe", 987, department);
+		employeeRepository.save(employee);
+
+		department.addEmployee(employee);
+		department.addEmployee(employee2);
+		departmentRepository.save(department);
 	}
 
 }

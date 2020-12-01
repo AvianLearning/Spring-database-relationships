@@ -53,4 +53,8 @@ public class Department {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public void addEmployee(Employee employee) {
+        this.employees.add(employee);
+    }
 }
