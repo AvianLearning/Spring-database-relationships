@@ -24,6 +24,7 @@ class CompanyRelationshipsApplicationTests {
 
 	@Test
 	void contextLoads() {
+
 	}
 
 	@Test
